@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHCA Target Dashboard (July 2027 Horizon)</title>
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #16161a;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #24242d;
+            --green: #22c55e;
+            --yellow: #eab308;
+            --blue: #2563eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px 15px;
+            line-height: 1.3;
+            font-size: 0.85rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: -0.3px;
+        }
+
+        .profile-link {
+            font-size: 0.8rem;
+            color: var(--blue);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #1c1c22;
+        }
+
+        .profile-link:hover {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .legend {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            width: fit-content;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+        .track-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .track-header {
+            background-color: #1c1c22;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .exam-card {
+            background: #1e1e24;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            min-height: 95px;
+        }
+
+        .status-pill {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-have { background-color: var(--green); box-shadow: 0 0 6px var(--green); }
+        .status-need { background-color: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+
+        .exam-code {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0 0 3px 0;
+        }
+
+        .exam-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 2rem;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 4px 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 3px;
+            color: #fff;
+            transition: opacity 0.15s;
+        }
+
+        .btn:hover { opacity: 0.85; }
+        .btn-verify { background-color: #16a34a; }
+        .btn-objectives { background-color: var(--blue); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <h1>RHCA Stack Dashboard</h1>
+            <p style="color: var(--text-muted); margin: 2px 0 0 0; font-size: 0.75rem;">Compact Tracks Architecture Planning Matrix</p>
+        </div>
+        <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="profile-link">🆔 Verify Profile: 111-010-393</a>
+    </header>
+
+    <div class="legend">
+        <div class="legend-item"><span class="dot" style="background-color: var(--green)"></span> Current / Valid (Opens Verify Profile)</div>
+        <div class="legend-item"><span class="dot" style="background-color: var(--yellow)"></span> Required (Opens Exam Objectives)</div>
+    </div>
+
+    <div class="track-section">
+        <div class="track-header">
+            <span>OpenShift Architect Track</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Row 1</span>
+        </div>
+        <div class="grid">
+            <div class="exam-card" data-exam="EX280">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX280</div>
+                <div class="exam-title">OpenShift Platform Admin</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX380">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX380</div>
+                <div class="exam-title">Advanced OpenShift Admin (July 10)</div>
+                <a href="https://www.redhat.com/en/services/training/ex380-red-hat-certified-advanced-system-administrator-in-openshift-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+            <div class="exam-card" data-exam="EX316">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX316</div>
+                <div class="exam-title">OpenShift Virtualization</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX336">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX336</div>
+                <div class="exam-title">Automating OpenShift VM Mgmt</div>
+                <a href="https://www.redhat.com/en/services/training/ex336-red-hat-certified-specialist-automating-openshift-virtual-machine-management-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+            <div class="exam-card" data-exam="EX370">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX370</div>
+                <div class="exam-title">OpenShift Data Foundation</div>
+                <a href="https://www.redhat.com/en/services/training/ex370-red-hat-certified-specialist-in-openshift-data-foundation-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="track-section">
+        <div class="track-header">
+            <span>Ansible Automation Architect Track</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Row 2</span>
+        </div>
+        <div class="grid">
+            <div class="exam-card" data-exam="EX200">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX200</div>
+                <div class="exam-title">RHCSA Core Systems</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX294">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX294</div>
+                <div class="exam-title">RHCE Core Ansible</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX467">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX467</div>
+                <div class="exam-title">Ansible Platform Specialist</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX417">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX417</div>
+                <div class="exam-title">Windows Automation</div>
+                <a href="https://www.redhat.com/en/services/training/ex417-red-hat-certified-specialist-microsoft-windows-automation-ansible-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+            <div class="exam-card" data-exam="EX457">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX457</div>
+                <div class="exam-title">Network Automation</div>
+                <a href="https://www.redhat.com/en/services/training/ex457-red-hat-certified-specialist-in-ansible-network-automation-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="track-section">
+        <div class="track-header">
+            <span>Enterprise Linux Architect Track</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Row 3</span>
+        </div>
+        <div class="grid">
+            <div class="exam-card" data-exam="EX200-L">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX200</div>
+                <div class="exam-title">RHCSA Core Systems</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX342">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX342</div>
+                <div class="exam-title">Diagnostics &amp; Troubleshoot</div>
+                <a href="https://www.redhat.com/en/services/training/ex342-red-hat-certified-specialist-linux-diagnostics-and-troubleshooting" target="_blank" class="btn">Objectives</a>
+            </div>
+            <div class="exam-card" data-exam="EX415">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX415</div>
+                <div class="exam-title">RHEL Security Specialist</div>
+                <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="btn">Check Status</a>
+            </div>
+            <div class="exam-card" data-exam="EX358">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX358</div>
+                <div class="exam-title">Services Mgmt &amp; Automation</div>
+                <a href="https://www.redhat.com/en/services/training/ex358-red-hat-certified-specialist-services-management-automation-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+            <div class="exam-card" data-exam="EX403">
+                <div class="status-pill"></div>
+                <div class="exam-code">EX403</div>
+                <div class="exam-title">Satellite Systems Mgmt</div>
+                <a href="https://www.redhat.com/en/services/training/ex403-red-hat-certified-specialist-in-deployment-and-systems-management-exam" target="_blank" class="btn">Objectives</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const rhProfileDB = {
+        "EX280": { current: true },
+        "EX316": { current: true },
+        "EX200": { current: true },
+        "EX294": { current: true },
+        "EX467": { current: true },
+        "EX415": { current: true },
+        
+        "EX380": { current: false },
+        "EX336": { current: false },
+        "EX370": { current: false },
+        "EX417": { current: false },
+        "EX457": { current: false },
+        "EX342": { current: false },
+        "EX358": { current: false },
+        "EX403": { current: false }
+    };
+
+    document.querySelectorAll('.exam-card').forEach(card => {
+        let examCode = card.getAttribute('data-exam');
+        if(examCode === "EX200-L") examCode = "EX200";
+        
+        const statusPill = card.querySelector('.status-pill');
+        const codeDisplay = card.querySelector('.exam-code');
+        const actionBtn = card.querySelector('.btn');
+        
+        if (rhProfileDB[examCode] && rhProfileDB[examCode].current) {
+            statusPill.classList.add('status-have');
+            codeDisplay.style.color = "var(--green)";
+            actionBtn.classList.add('btn-verify');
+            actionBtn.textContent = "Verify Live";
+        } else {
+            statusPill.classList.add('status-need');
+            codeDisplay.style.color = "var(--yellow)";
+            actionBtn.classList.add('btn-objectives');
+            actionBtn.textContent = "Objectives";
+        }
+    });
+</script>
+
+</body>
+</html>
