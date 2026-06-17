@@ -102,30 +102,7 @@
             justify-content: space-between;
             position: relative;
             min-height: 95px;
-            height: 95px;
-            box-sizing: border-box;
         }
-        
-        /* Box boundaries optimized for edge-to-edge asset display */
-        .badge-display-card {
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 95px;
-            height: 95px;
-            box-sizing: border-box;
-            background: #1c1c22;
-            padding: 0;
-        }
-        .badge-show-art {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
         .status-pill {
             position: absolute;
             top: 10px;
@@ -133,12 +110,16 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            z-index: 2;
         }
         .status-have { background-color: var(--green); box-shadow: 0 0 6px var(--green); }
         .status-need { background-color: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
         .status-optional { background-color: var(--text-muted); box-shadow: 0 0 4px var(--text-muted); }
         
+        .card-top-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
         .exam-code {
             font-size: 1rem;
             font-weight: bold;
@@ -149,6 +130,12 @@
             color: #a7f3d0;
             margin-bottom: 4px;
             font-weight: 500;
+        }
+        .badge-thumb {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            display: none;
         }
         .exam-title {
             font-size: 0.75rem;
@@ -194,104 +181,81 @@
         <div class="legend-item"><span class="dot" style="background-color: var(--text-muted)"></span> Optional Tracks</div>
     </div>
 
-    <!-- ROW 1: OPENTSHIFT TRACK -->
     <div class="track-section">
         <div class="track-header">
             <span>OpenShift Architect Track</span>
             <span style="font-size: 0.75rem; color: var(--text-muted);">OpenShift Architect Track</span>
         </div>
         <div class="grid">
-            <div class="exam-card" data-exam="EX280"><div class="status-pill"></div><div><div class="exam-code">EX280</div><div class="exam-expiry"></div></div><div class="exam-title">OpenShift Platform Admin</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX380"><div class="status-pill"></div><div><div class="exam-code">EX380</div><div class="exam-expiry"></div></div><div class="exam-title">Advanced OpenShift Admin</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX316"><div class="status-pill"></div><div><div class="exam-code">EX316</div><div class="exam-expiry"></div></div><div class="exam-title">OpenShift Virtualization</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX336"><div class="status-pill"></div><div><div class="exam-code">EX336</div><div class="exam-expiry"></div></div><div class="exam-title">Automating OpenShift VM Mgmt</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX370"><div class="status-pill"></div><div><div class="exam-code">EX370</div><div class="exam-expiry"></div></div><div class="exam-title">OpenShift Data Foundation</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX430"><div class="status-pill"></div><div><div class="exam-code">EX430</div><div class="exam-expiry"></div></div><div class="exam-title">Advanced Cluster Security</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX432"><div class="status-pill"></div><div><div class="exam-code">EX432</div><div class="exam-expiry"></div></div><div class="exam-title">Advanced Cluster Mgmt</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX280"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX280</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">OpenShift Platform Admin</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX380"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX380</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Advanced OpenShift Admin</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX316"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX316</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">OpenShift Virtualization</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX336"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX336</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Automating OpenShift VM Mgmt</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX370"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX370</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">OpenShift Data Foundation</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX430"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX430</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Advanced Cluster Security</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX432"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX432</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Advanced Cluster Mgmt</div><a href="" target="_blank" class="btn"></a></div>
         </div>
     </div>
 
-    <!-- ROW 2: ANSIBLE AUTOMATION TRACK -->
     <div class="track-section">
         <div class="track-header">
             <span>Ansible Automation Architect Track</span>
             <span style="font-size: 0.75rem; color: var(--text-muted);">Ansible Automation Architect Track</span>
         </div>
         <div class="grid">
-            <div class="exam-card" data-exam="EX200"><div class="status-pill"></div><div><div class="exam-code">EX200</div><div class="exam-expiry"></div></div><div class="exam-title">RHCSA Core Systems</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX294"><div class="status-pill"></div><div><div class="exam-code">EX294</div><div class="exam-expiry"></div></div><div class="exam-title">RHCE Core Ansible</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX374"><div class="status-pill"></div><div><div class="exam-code">EX374</div><div class="exam-expiry"></div></div><div class="exam-title">Developing Automation AAP</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX417"><div class="status-pill"></div><div><div class="exam-code">EX417</div><div class="exam-expiry"></div></div><div class="exam-title">Windows Automation</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX457"><div class="status-pill"></div><div><div class="exam-code">EX457</div><div class="exam-expiry"></div></div><div class="exam-title">Network Automation</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX467"><div class="status-pill"></div><div><div class="exam-code">EX467</div><div class="exam-expiry"></div></div><div class="exam-title">Managing Automation AAP</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX200"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX200</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">RHCSA Core Systems</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX294"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX294</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">RHCE Core Ansible</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX374"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX374</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Developing Automation AAP</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX417"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX417</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Windows Automation</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX457"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX457</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Network Automation</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX467"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX467</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Managing Automation AAP</div><a href="" target="_blank" class="btn"></a></div>
         </div>
     </div>
 
-    <!-- ROW 3: ENTERPRISE LINUX TRACK -->
     <div class="track-section">
         <div class="track-header">
             <span>Enterprise Linux Architect Track</span>
             <span style="font-size: 0.75rem; color: var(--text-muted);">Enterprise Linux Architect Track</span>
         </div>
         <div class="grid">
-            <div class="exam-card" data-exam="EX200"><div class="status-pill"></div><div><div class="exam-code">EX200</div><div class="exam-expiry"></div></div><div class="exam-title">RHCSA Core Systems</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX342"><div class="status-pill"></div><div><div class="exam-code">EX342</div><div class="exam-expiry"></div></div><div class="exam-title">Diagnostics &amp; Troubleshoot</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX210"><div class="status-pill"></div><div><div class="exam-code">EX210</div><div class="exam-expiry"></div></div><div class="exam-title">OpenStack Cloud Admin</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX260"><div class="status-pill"></div><div><div class="exam-code">EX260</div><div class="exam-expiry"></div></div><div class="exam-title">Ceph Cloud Storage</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX358"><div class="status-pill"></div><div><div class="exam-code">EX358</div><div class="exam-expiry"></div></div><div class="exam-title">Services Mgmt &amp; Automation</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX362"><div class="status-pill"></div><div><div class="exam-code">EX362</div><div class="exam-expiry"></div></div><div class="exam-title">Identity Management</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX403"><div class="status-pill"></div><div><div class="exam-code">EX403</div><div class="exam-expiry"></div></div><div class="exam-title">Satellite Systems Mgmt</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX415"><div class="status-pill"></div><div><div class="exam-code">EX415</div><div class="exam-expiry"></div></div><div class="exam-title">RHEL Security Specialist</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX436"><div class="status-pill"></div><div><div class="exam-code">EX436</div><div class="exam-expiry"></div></div><div class="exam-title">High Availability Clustering</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX442"><div class="status-pill"></div><div><div class="exam-code">EX442</div><div class="exam-expiry"></div></div><div class="exam-title">Linux Performance Tuning</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX200"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX200</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">RHCSA Core Systems</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX342"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX342</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Diagnostics &amp; Troubleshoot</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX210"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX210</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">OpenStack Cloud Admin</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX260"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX260</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Ceph Cloud Storage</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX358"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX358</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Services Mgmt &amp; Automation</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX362"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX362</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Identity Management</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX403"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX403</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Satellite Systems Mgmt</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX415"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX415</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">RHEL Security Specialist</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX436"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX436</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">High Availability Clustering</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX442"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX442</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Linux Performance Tuning</div><a href="" target="_blank" class="btn"></a></div>
         </div>
     </div>
 
-    <!-- ROW 4: ADDITIONAL CURRENT CREDENTIALS (EXTRAS) -->
     <div class="track-section">
         <div class="track-header">
             <span>Additional Current Credentials</span>
             <span style="font-size: 0.75rem; color: var(--text-muted);">Extras</span>
         </div>
         <div class="grid">
-            <div class="exam-card" data-exam="EX180"><div class="status-pill"></div><div><div class="exam-code">EX180</div><div class="exam-expiry"></div></div><div class="exam-title">Technologist in OpenShift</div><a href="" target="_blank" class="btn"></a></div>
-            <div class="exam-card" data-exam="EX188"><div class="status-pill"></div><div><div class="exam-code">EX188</div><div class="exam-expiry"></div></div><div class="exam-title">Cloud-native Applications</div><a href="" target="_blank" class="btn"></a></div>
-        </div>
-    </div>
-
-    <!-- ROW 5: LOGOS ROW BELOW EXTRAS -->
-    <div class="track-section">
-        <div class="track-header">
-            <span>Logos</span>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Active Badges</span>
-        </div>
-        <div class="grid">
-            <div class="badge-display-card"><img src="red-hat-certified-system-administrator-in-openshift.png" class="badge-show-art" alt="RHCSA OpenShift"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-specialist-in-openshift-virtualiz.png" class="badge-show-art" alt="Specialist OpenShift Virtualization"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-system-administrator-rhcsa.png" class="badge-show-art" alt="RHCSA Core System"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-engineer-in-ansible.png" class="badge-show-art" alt="RHCE Ansible"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-specialist-in-managing-automation.png" class="badge-show-art" alt="Specialist Managing Automation"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-specialist-in-security-linux.png" class="badge-show-art" alt="Specialist Security Linux"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-technologist-in-openshift.png" class="badge-show-art" alt="Technologist OpenShift"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-developer-in-cloud-native-applica.png" class="badge-show-art" alt="Developer Cloud-Native Applications"></div>
-            <div class="badge-display-card"><img src="red-hat-certified-architect-in-enterprise-linux.png" class="badge-show-art" alt="RHCA Enterprise Linux"></div>
+            <div class="exam-card" data-exam="EX180"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX180</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Technologist in OpenShift</div><a href="" target="_blank" class="btn"></a></div>
+            <div class="exam-card" data-exam="EX188"><div class="status-pill"></div><div class="card-top-meta"><div><div class="exam-code">EX188</div><div class="exam-expiry"></div></div><img class="badge-thumb" alt="badge"></div><div class="exam-title">Cloud-native Applications</div><a href="" target="_blank" class="btn"></a></div>
         </div>
     </div>
 </div>
 
 <script>
     const rhProfileDB = {
-        // GREEN EXAMS WITH DATES & CREDLY LINKS
-        "EX280": { type: "have", expiry: "Exp: Jul 13, 2026", URL: "https://www.credly.com/badges/5c2988e0-8f6c-4c2b-9098-9a4135cf1035/public_url" },
-        "EX316": { type: "have", expiry: "Exp: Sep 04, 2028", URL: "https://www.credly.com/badges/fb95dd13-4938-474a-8d70-a9f10ce4c732/public_url" },
-        "EX200": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/c3cef935-d704-406f-b6fb-c0c85449ebaf/public_url" },
-        "EX294": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/c805641e-60f3-4ffc-a137-4a00a43e219b/public_url" },
-        "EX467": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/d7a70fb9-ec0a-4e6c-8af2-40566c563cd3/public_url" },
-        "EX415": { type: "have", expiry: "Exp: Jan 16, 2027", URL: "https://www.credly.com/badges/7aa7722b-2057-4e0a-9d32-37c93ae38223/public_url" },
+        // GREEN EXAMS MAPPED TO YOUR REPOSITORY FILE STACK
+        "EX280": { type: "have", expiry: "Exp: Jul 13, 2026", URL: "https://www.credly.com/earner/earned/badge/5c2988e0-8f6c-4c2b-9098-9a4135cf1035", image: "red-hat-certified-system-administrator-in-openshift.png" },
+        "EX316": { type: "have", expiry: "Exp: Sep 04, 2028", URL: "https://www.credly.com/earner/earned/badge/fb95dd13-4938-474a-8d70-a9f10ce4c732", image: "red-hat-certified-specialist-in-openshift-virtualiz.png" },
+        "EX200": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/earner/earned/badge/c3cef935-d704-406f-b6fb-c0c85449ebaf", image: "red-hat-certified-system-administrator-rhcsa.png" },
+        "EX294": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/earner/earned/badge/c805641e-60f3-4ffc-a137-4a00a43e219b", image: "red-hat-certified-engineer-in-ansible.png" },
+        "EX467": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/earner/earned/badge/d7a70fb9-ec0a-4e6c-8af2-40566c563cd3", image: "red-hat-certified-specialist-in-managing-automation.png" },
+        "EX415": { type: "have", expiry: "Exp: Jan 16, 2027", URL: "https://www.credly.com/earner/earned/badge/7aa7722b-2057-4e0a-9d32-37c93ae38223", image: "red-hat-certified-specialist-in-security-linux.png" },
         
-        // EXTRAS INCLUDED AS CURRENT
-        "EX180": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/fd424754-faf1-459f-a83f-83cc37348b39/public_url" },
-        "EX188": { type: "have", expiry: "Exp: Jan 30, 2027", URL: "https://www.credly.com/badges/b2312189-2a0c-4b73-87d5-163be85d3098/public_url" },
+        // EXTRA ROW EXAMS WITH SPECIFIC ASSETS
+        "EX180": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/earner/earned/badge/fd424754-faf1-459f-a83f-83cc37348b39", image: "red-hat-certified-technologist-in-openshift.png" },
+        "EX188": { type: "have", expiry: "Exp: Jan 30, 2027", URL: "https://www.credly.com/earner/earned/badge/b2312189-2a0c-4b73-87d5-163be85d3098", image: "red-hat-certified-developer-in-cloud-native-applica.png" },
         
         // YELLOW EXAMS
         "EX380": { type: "need", URL: "https://www.redhat.com/en/services/training/ex380-red-hat-certified-advanced-system-administrator-in-openshift-exam" },
@@ -319,11 +283,18 @@
         const statusPill = card.querySelector('.status-pill');
         const codeDisplay = card.querySelector('.exam-code');
         const expiryDisplay = card.querySelector('.exam-expiry');
+        const badgeImg = card.querySelector('.badge-thumb');
         const actionBtn = card.querySelector('.btn');
         const mapData = rhProfileDB[examCode];
 
         if (mapData) {
             actionBtn.href = mapData.URL;
+            
+            if (badgeImg && mapData.image) {
+                badgeImg.src = mapData.image;
+                badgeImg.style.display = 'block';
+            }
+
             if (mapData.type === "have") {
                 statusPill.classList.add('status-have');
                 codeDisplay.style.color = "var(--green)";
