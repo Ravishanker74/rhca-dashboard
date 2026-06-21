@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RHCA Target Dashboard (July 2027 Horizon)</title>
+
+    <meta property="og:title" content="RHCA Stack Dashboard - Ravi Shanker">
+    <meta property="og:description" content="Red Hat Certified Architect Unified Infrastructure Planning Matrix & Certification Stack.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ravishanker74.github.io/rhca-dashboard/index.html">
+    
+    <meta property="og:image" content="https://ravishanker74.github.io/rhca-dashboard/red-hat-certified-architect-in-enterprise-linux.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <style>
         :root {
             --bg-color: #0f0f11;
@@ -106,7 +117,6 @@
             box-sizing: border-box;
         }
         
-        /* Updated badge background parameters to White with inner breathing padding */
         .badge-display-card {
             border: 1px solid var(--border-color);
             border-radius: 4px;
@@ -117,8 +127,8 @@
             min-height: 95px;
             height: 95px;
             box-sizing: border-box;
-            background: #ffffff; /* Set to crisp white background */
-            padding: 6px;        /* Safeguards round badge outlines from touching box borders */
+            background: #ffffff; 
+            padding: 6px;        
         }
         .badge-show-art {
             width: 100%;
@@ -276,7 +286,6 @@
 
 <script>
     const rhProfileDB = {
-        // GREEN EXAMS WITH DATES & CREDLY LINKS
         "EX280": { type: "have", expiry: "Exp: Jul 13, 2026", URL: "https://www.credly.com/badges/5c2988e0-8f6c-4c2b-9098-9a4135cf1035/public_url" },
         "EX316": { type: "have", expiry: "Exp: Sep 04, 2028", URL: "https://www.credly.com/badges/fb95dd13-4938-474a-8d70-a9f10ce4c732/public_url" },
         "EX200": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/c3cef935-d704-406f-b6fb-c0c85449ebaf/public_url" },
@@ -284,11 +293,9 @@
         "EX467": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/d7a70fb9-ec0a-4e6c-8af2-40566c563cd3/public_url" },
         "EX415": { type: "have", expiry: "Exp: Jan 16, 2027", URL: "https://www.credly.com/badges/7aa7722b-2057-4e0a-9d32-37c93ae38223/public_url" },
         
-        // EXTRAS INCLUDED AS CURRENT
         "EX180": { type: "have", expiry: "Exp: Jun 05, 2029", URL: "https://www.credly.com/badges/fd424754-faf1-459f-a83f-83cc37348b39/public_url" },
         "EX188": { type: "have", expiry: "Exp: Jan 30, 2027", URL: "https://www.credly.com/badges/b2312189-2a0c-4b73-87d5-163be85d3098/public_url" },
         
-        // YELLOW EXAMS
         "EX380": { type: "need", URL: "https://www.redhat.com/en/services/training/ex380-red-hat-certified-advanced-system-administrator-in-openshift-exam" },
         "EX336": { type: "need", URL: "https://www.redhat.com/en/services/training/ex336-red-hat-certified-specialist-automating-openshift-virtual-machine-management-exam" },
         "EX370": { type: "need", URL: "https://www.redhat.com/en/services/training/ex370-red-hat-certified-specialist-in-openshift-data-foundation-exam" },
@@ -298,7 +305,6 @@
         "EX358": { type: "need", URL: "https://www.redhat.com/en/services/training/ex358-red-hat-certified-specialist-services-management-automation-exam" },
         "EX403": { type: "need", URL: "https://www.redhat.com/en/services/training/ex403-red-hat-certified-specialist-in-deployment-and-systems-management-exam" },
         
-        // WHITE EXAMS
         "EX430": { type: "optional", URL: "https://www.redhat.com/en/services/training/ex430-red-hat-certified-specialist-openshift-advanced-cluster-security-exam" },
         "EX432": { type: "optional", URL: "https://www.redhat.com/en/services/training/ex432-red-hat-certified-specialist-openshift-advanced-cluster-management-exam" },
         "EX374": { type: "optional", URL: "https://www.redhat.com/en/services/training/red-hat-certified-specialist-developing-automation-ansible-automation-platform-exam" },
