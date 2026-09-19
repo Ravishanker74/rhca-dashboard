@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RHCA Target Dashboard (Ravi Shanker) (Target to Achieve 3 RHCA by July 2027)</title>
     
+    <!-- LinkedIn / Open Graph Meta Tags -->
     <meta property="og:title" content="RHCA Stack Dashboard (Ravi Shanker)">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ravishanker74.github.io/rhca-dashboard/">
@@ -50,20 +51,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         h1 {
             margin: 0;
             font-size: 1.3rem;
             letter-spacing: -0.3px;
         }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
         .profile-link {
             font-size: 0.8rem;
             color: var(--blue);
             text-decoration: none;
             border: 1px solid var(--border-color);
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
             background: #1c1c22;
+            transition: background 0.2s, color 0.2s;
         }
         .profile-link:hover {
             background: #2563eb;
@@ -102,7 +112,7 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(10, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             gap: 10px;
             padding: 10px;
         }
@@ -208,7 +218,11 @@
             <h1>RHCA Stack Dashboard (Ravi Shanker)</h1>
             <p style="color: var(--text-muted); margin: 2px 0 0 0; font-size: 0.75rem;">Red Hat Certified Architect Planning Matrix</p>
         </div>
-        <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="profile-link">🆔 Verify Profile: 111-010-393</a>
+        <div class="header-actions">
+            <!-- Global Catalog & Official Tracks Master Link -->
+            <a href="https://www.redhat.com/en/services/certifications" target="_blank" class="profile-link" style="color: #60a5fa; border-color: #2563eb;">📜 All Red Hat Certifications &amp; Tracks</a>
+            <a href="https://rhtapps.redhat.com/verify?certId=111-010-393" target="_blank" class="profile-link">🆔 Verify Profile: 111-010-393</a>
+        </div>
     </header>
     <div class="legend">
         <div class="legend-item"><span class="dot" style="background-color: var(--green)"></span> Current / Certified</div>
